@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
-from django.utils.importlib import import_module
+#from django.utils.importlib import import_module
+from importlib import import_module
 
 def get_module(app, modname, verbose, failfast):
     """
@@ -13,10 +14,10 @@ def get_module(app, modname, verbose, failfast):
         if failfast:
             raise e
         elif verbose:
-            print "Could not load %r from %r: %s" % (modname, app, e)
+            print("Could not load %r from %r: %s".format(modname, app, e))
         return None
     if verbose:
-        print "Loaded %r from %r" % (modname, app)
+        print("Loaded %r from %r".format(modname, app))
     return module
         
 
